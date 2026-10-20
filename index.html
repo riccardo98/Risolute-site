@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Risolute: consulenza operativa e problem solving per aziende. Diamo metodo alle complessità.">
+  <meta name="theme-color" content="#202923">
+  <title>Risolute | Diamo metodo alle complessità</title>
+  <style>
+    :root {
+      --dark: #202923;
+      --green: #9aaf9b;
+      --paper: #f7f7f3;
+      --white: #ffffff;
+      --text: #303832;
+      --muted: #697169;
+      --line: #e3e6df;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, 90%); margin: auto; }
+
+    header {
+      background: var(--dark);
+      color: var(--white);
+      border-bottom: 1px solid #39443b;
+    }
+    nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-decoration: none;
+    }
+    .nav-link {
+      text-decoration: none;
+      font-size: 14px;
+      color: #e1e6df;
+    }
+
+    .hero {
+      background: var(--dark);
+      color: var(--white);
+      padding: 105px 0 112px;
+    }
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -2.5px;
+      max-width: 850px;
+      margin: 24px 0;
+      font-weight: 600;
+    }
+    .hero p {
+      color: #d1d8d0;
+      font-size: 18px;
+      max-width: 650px;
+      margin-bottom: 34px;
+    }
+    .button {
+      display: inline-block;
+      padding: 14px 23px;
+      background: var(--green);
+      color: var(--dark);
+      border-radius: 3px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 14px;
+      transition: opacity .2s;
+    }
+    .button:hover { opacity: .85; }
+    section { padding: 82px 0; }
+    .section-light { background: var(--paper); }
+    .section-heading {
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+      max-width: 730px;
+      margin: 12px 0 20px;
+      color: var(--dark);
+    }
+    .intro {
+      max-width: 760px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 42px;
+    }
+    .card {
+      padding: 27px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      border-radius: 4px;
+    }
+    .number {
+      color: #7d987f;
+      font-size: 13px;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    h3 { color: var(--dark); font-size: 20px; margin: 15px 0 10px; }
+    .card p { color: var(--muted); font-size: 15px; margin-bottom: 0; }
+    .method {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 38px;
+    }
+    .step { border-top: 2px solid var(--green); padding-top: 16px; }
+    .step h3 { margin-top: 0; }
+    .contact {
+      background: var(--dark);
+      color: var(--white);
+      text-align: center;
+    }
+    .contact .section-heading { color: var(--white); margin-left: auto; margin-right: auto; }
+    .contact p { color: #d1d8d0; max-width: 600px; margin: 0 auto 28px; }
+    footer {
+      background: #171e19;
+      color: #bdc5bd;
+      padding: 25px 0;
+      font-size: 13px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer a { color: #dce3dc; text-decoration: none; }
+
+    @media (max-width: 760px) {
+      .hero { padding: 76px 0 82px; }
+      h1 { letter-spacing: -1.5px; }
+      section { padding: 62px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .method { grid-template-columns: repeat(2, 1fr); }
+      nav { min-height: 72px; }
+    }
+    @media (max-width: 420px) {
+      .method { grid-template-columns: 1fr; }
+      .nav-link { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#" aria-label="Risolute, homepage">RISOLUTE</a>
+        <a class="nav-link" href="#contatti">PARLIAMONE ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Consulenza operativa · Problem solving</div>
+        <h1>Diamo metodo alle complessità.</h1>
+        <p>
+          Affianchiamo le aziende nell'analisi dei problemi operativi,
+          nell'individuazione delle inefficienze e nella definizione di
+          soluzioni concrete. Dalle criticità alle priorità, dalle idee
+          alle azioni.
+        </p>
+        <a class="button" href="#contatti">Parliamo del tuo problema&nbsp; →</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Il punto di partenza</div>
+        <h2 class="section-heading">Quando la complessità rallenta il lavoro.</h2>
+        <p class="intro">
+          Attività da coordinare, responsabilità poco chiare, inefficienze
+          ricorrenti o problemi che si ripresentano. Il primo passo è
+          comprendere cosa succede, individuare le cause e mettere ordine
+          nelle priorità.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-light">
+      <div class="container">
+        <div class="eyebrow">Aree di intervento</div>
+        <h2 class="section-heading">Dall'analisi a un piano d'azione.</h2>
+        <p class="intro">
+          Un approccio pratico e strutturato, da definire in funzione
+          della situazione, degli obiettivi e delle risorse disponibili.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <div class="number">01 / ANALISI</div>
+            <h3>Analisi operativa</h3>
+            <p>
+              Ricostruire i processi, far emergere le criticità e distinguere
+              i sintomi dalle possibili cause del problema.
+            </p>
+          </article>
+          <article class="card">
+            <div class="number">02 / COORDINAMENTO</div>
+            <h3>Organizzazione del lavoro</h3>
+            <p>
+              Chiarire attività, priorità, responsabilità e passaggi tra
+              persone e funzioni aziendali.
+            </p>
+          </article>
+          <article class="card">
+            <div class="number">03 / SOLUZIONI</div>
+            <h3>Problem solving</h3>
+            <p>
+              Valutare le alternative e tradurre le soluzioni individuate
+              in azioni concrete, verificabili e ordinate per priorità.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Il metodo Risolute</div>
+        <h2 class="section-heading">Un percorso chiaro. Un passo alla volta.</h2>
+        <div class="method">
+          <div class="step">
+            <h3>Comprendere</h3>
+            <p>Ascoltare le esigenze e definire il problema da affrontare.</p>
+          </div>
+          <div class="step">
+            <h3>Analizzare</h3>
+            <p>Esaminare il processo, i vincoli e le cause della criticità.</p>
+          </div>
+          <div class="step">
+            <h3>Definire</h3>
+            <p>Individuare le opzioni e stabilire le priorità operative.</p>
+          </div>
+          <div class="step">
+            <h3>Migliorare</h3>
+            <p>Organizzare le azioni e identificare come verificarne i risultati.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contatti">
+      <div class="container">
+        <div class="eyebrow">Primo confronto</div>
+        <h2 class="section-heading">Ogni soluzione parte dalla domanda giusta.</h2>
+        <p>
+          Raccontaci la situazione che vuoi affrontare. Possiamo partire
+          da un confronto iniziale per capire il problema e valutare
+          insieme il percorso più adatto.
+        </p>
+        <a class="button" href="mailto:amministrazione@risolute.it?subject=Richiesta%20di%20contatto%20-%20Risolute">
+          Scrivi a Risolute&nbsp; →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <strong>RISOLUTE</strong>
+      <span>Diamo metodo alle complessità.</span>
+      <a href="mailto:amministrazione@risolute.it">amministrazione@risolute.it</a>
+      <span>© 2026 Risolute</span>
+    </div>
+  </footer>
+</body>
+</html>
