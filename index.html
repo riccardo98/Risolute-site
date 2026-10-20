@@ -2,297 +2,543 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Risolute: consulenza operativa e problem solving per aziende. Diamo metodo alle complessità.">
-  <meta name="theme-color" content="#202923">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Risolute offre consulenza operativa e problem solving per aziende e professionisti: analisi delle criticità, organizzazione del lavoro e piani d'azione concreti.">
+  <meta name="theme-color" content="#17231e">
+  <link rel="icon" type="image/svg+xml" href="risolute-favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta name="color-scheme" content="light">
+  <meta property="og:title" content="Risolute | Diamo metodo alle complessità">
+  <meta property="og:description" content="Consulenza operativa e problem solving per aziende e professionisti.">
   <title>Risolute | Diamo metodo alle complessità</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --dark: #202923;
-      --green: #9aaf9b;
-      --paper: #f7f7f3;
-      --white: #ffffff;
-      --text: #303832;
-      --muted: #697169;
-      --line: #e3e6df;
+      --forest:#17231e; --forest-2:#223129; --sage:#b7c8b4; --sage-dark:#748b76;
+      --paper:#f6f7f3; --white:#fff; --ink:#202a24; --muted:#68736b;
+      --line:#dfe5dc; --shadow:0 18px 50px rgba(23,35,30,.10);
+      --radius:16px; --max:1160px;
     }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--white);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+    body.menu-open{overflow:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button,input,textarea,select{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    :focus-visible{outline:3px solid #86a78b;outline-offset:4px}
+    .container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+    .skip-link{position:absolute;left:-9999px;top:8px;z-index:200;background:white;padding:12px}
+    .skip-link:focus{left:8px}
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(23,35,30,.97);color:white;border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px)}
+    .nav-wrap{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;white-space:nowrap}
+    .brand-mark{width:42px;height:42px;display:block;flex:0 0 42px;color:#f7f7f3}
+    .brand-mark svg{display:block;width:100%;height:100%}
+    .brand-name{font-family:Manrope,sans-serif;font-size:22px;font-weight:800;letter-spacing:4px}
+    .brand-inline{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+    .brand-inline-mark{display:inline-block;width:17px;height:17px;flex:0 0 17px;vertical-align:middle;color:currentColor}
+    .brand-inline-mark svg{display:block;width:100%;height:100%}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.65;
+    /* Temporary typographic wordmark: replace this block with the approved logo asset when ready. */
+    .brand-placeholder{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;background:transparent;border:0;border-radius:0;padding:0;min-width:0;color:#f7f7f3;text-decoration:none;line-height:1.1}
+    .wordmark{font-family:Manrope,Arial,sans-serif;font-size:22px;font-weight:800;letter-spacing:4px}
+    .wordmark-sub{margin-top:5px;font-size:8px;font-weight:700;letter-spacing:1.55px;color:#b7c8b4}
+    .footer-brand .wordmark{font-size:19px}
+    .footer-brand .wordmark-sub{font-size:7px}
+    @media(max-width:600px){.wordmark{font-size:19px;letter-spacing:3px}.wordmark-sub{font-size:7px;letter-spacing:1.2px}}
+    .nav-links{display:flex;align-items:center;gap:25px}
+    .nav-links a{font-size:13px;color:#e1e7e0;text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--sage)}
+    .nav-cta,.button{display:inline-flex;justify-content:center;align-items:center;gap:10px;border:1px solid transparent;border-radius:6px;padding:13px 19px;text-decoration:none;font-size:14px;font-weight:700;transition:transform .2s,background .2s,border-color .2s}
+    .nav-cta,.button-primary{background:var(--sage);color:var(--forest)}
+    .nav-cta:hover,.button-primary:hover{background:#c8d5c5;transform:translateY(-1px)}
+    .button-outline{border-color:rgba(255,255,255,.35);color:white;background:transparent}
+    .button-outline:hover{border-color:var(--sage);color:var(--sage)}
+    .menu-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,.25);color:white;border-radius:7px;width:44px;height:44px;cursor:pointer}
+    .menu-toggle svg{width:22px;height:22px}
+    .hero{position:relative;isolation:isolate;overflow:hidden;background:var(--forest);color:white;min-height:590px;display:flex;align-items:center}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=85") center 48%/cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(18,30,24,.98) 0%,rgba(18,30,24,.91) 35%,rgba(18,30,24,.55) 64%,rgba(18,30,24,.18) 100%),linear-gradient(0deg,rgba(18,30,24,.35),transparent 50%)}
+    .hero-content{padding:100px 0 108px;max-width:760px}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--sage-dark);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    .hero .eyebrow,.dark-section .eyebrow,.contact-section .eyebrow{color:var(--sage)}
+    .eyebrow::before{content:"";width:25px;height:1px;background:currentColor}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif;line-height:1.16;letter-spacing:-.035em}
+    h1{font-size:clamp(42px,6.2vw,76px);font-weight:700;max-width:790px;margin:23px 0}
+    .hero-lead{max-width:640px;font-size:18px;color:#d8e0d8;line-height:1.75;margin-bottom:30px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-note{margin-top:28px;color:#c0ccc1;font-size:12px}
+    .scroll-cue{position:absolute;right:max(24px,calc((100vw - var(--max))/2));bottom:30px;display:flex;align-items:center;gap:10px;color:#e1e8df;font-size:10px;letter-spacing:2px;text-transform:uppercase;writing-mode:vertical-rl}
+    .scroll-cue::after{content:"";width:1px;height:42px;background:var(--sage)}
+    section{padding:92px 0}
+    .section-head{max-width:760px;margin-bottom:42px}
+    .section-head h2,.split-copy h2,.contact-copy h2{font-size:clamp(31px,4.2vw,48px);color:var(--forest);margin:15px 0 18px}
+    .section-head p,.split-copy p,.section-intro{font-size:17px;color:var(--muted);max-width:760px}
+    .split{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:70px}
+    .image-frame{position:relative;min-height:390px;border-radius:var(--radius);overflow:hidden;background:#dfe5dc;box-shadow:var(--shadow)}
+    .image-frame img{width:100%;height:100%;min-height:390px;object-fit:cover}
+    .image-caption{position:absolute;left:20px;right:20px;bottom:20px;padding:16px 18px;background:rgba(23,35,30,.88);color:white;border:1px solid rgba(255,255,255,.15);border-radius:9px;font-size:13px;backdrop-filter:blur(8px)}
+    .problem-list{list-style:none;padding:0;margin:27px 0 0;display:grid;gap:14px}
+    .problem-list li{display:flex;align-items:flex-start;gap:12px;color:#3e4941}
+    .check{flex:0 0 23px;height:23px;border-radius:50%;background:#e5ece3;color:#526b55;display:grid;place-items:center;font-weight:800;font-size:13px;margin-top:1px}
+    .soft-section{background:var(--paper)}
+    .service-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+    .service-layout .section-head{margin-bottom:0}
+    .service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .service-card{padding:25px 24px 27px;border:1px solid var(--line);background:rgba(255,255,255,.88);border-radius:12px;transition:transform .2s,box-shadow .2s,border-color .2s}
+    .service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#c5d2c2}
+    .service-icon{width:43px;height:43px;border-radius:11px;display:grid;place-items:center;background:#eaf0e7;color:#526b55}
+    .service-icon svg{width:22px;height:22px}
+    .card-index{font-size:10px;font-weight:800;letter-spacing:1.4px;color:var(--sage-dark);margin:19px 0 8px}
+    .service-card h3{font-size:21px;margin-bottom:11px}
+    .service-card p{font-size:14px;color:var(--muted);margin-bottom:0}
+    .service-card .card-link{display:inline-flex;margin-top:18px;font-size:13px;font-weight:700;text-decoration:none;color:#49664d;align-items:center;gap:7px}
+    .service-card .card-link:hover{text-decoration:underline}
+    .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:45px}
+    .method-step{border-top:2px solid var(--sage-dark);padding-top:20px}
+    .step-number{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--forest);color:white;font-size:13px;font-weight:700;margin-bottom:20px}
+    .method-step h3{font-size:20px;margin-bottom:10px}
+    .method-step p{font-size:14px;color:var(--muted);margin-bottom:0}
+    .approach{background:var(--forest);color:white}
+    .approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+    .approach-image{height:420px;overflow:hidden;border-radius:var(--radius);position:relative}
+    .approach-image img{width:100%;height:100%;object-fit:cover}
+    .approach-image::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,27,20,.78),transparent 72%)}
+    .approach-image-label{position:absolute;z-index:1;left:28px;bottom:25px;right:28px}
+    .approach-image-label .eyebrow{color:var(--sage)}
+    .approach-image-label h3{font-size:30px;max-width:390px;margin:13px 0 0}
+    .approach .section-head{margin-bottom:28px}
+    .approach .section-head h2{color:white}
+    .approach .section-head p{color:#c6d0c6}
+    .principles{display:grid;gap:0}
+    .principle{display:grid;grid-template-columns:44px 1fr;gap:17px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+    .principle:last-child{border-bottom:0}
+    .principle-icon{color:var(--sage);padding-top:2px}
+    .principle-icon svg{width:25px;height:25px}
+    .principle h3{font-size:16px;letter-spacing:0;margin-bottom:5px;color:white}
+    .principle p{font-size:13px;color:#c6d0c6;margin-bottom:0}
+    .sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+    .sector{padding:25px;border:1px solid var(--line);border-radius:12px}
+    .sector h3{font-size:19px;margin:14px 0 9px}
+    .sector p{font-size:14px;color:var(--muted);margin:0}
+    .sector .service-icon{background:#f0f3ed}
+    .faq-wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:start}
+    .faq-list{border-top:1px solid var(--line)}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-question{display:flex;width:100%;justify-content:space-between;align-items:center;gap:20px;padding:21px 0;border:0;background:transparent;color:var(--ink);text-align:left;font-weight:700;cursor:pointer}
+    .faq-question span:last-child{font-size:23px;color:var(--sage-dark);transition:transform .2s}
+    .faq-question[aria-expanded="true"] span:last-child{transform:rotate(45deg)}
+    .faq-answer{padding:0 32px 20px 0;color:var(--muted);font-size:14px}
+    .faq-answer[hidden]{display:none}
+    .contact-section{background:var(--forest);color:white;position:relative;overflow:hidden}
+    .contact-section::after{content:"R";position:absolute;right:-25px;bottom:-190px;font-family:Manrope,sans-serif;font-size:480px;font-weight:800;line-height:1;color:rgba(255,255,255,.025);pointer-events:none}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:75px;position:relative;z-index:1}
+    .contact-copy h2{color:white}
+    .contact-copy p{color:#d0d9d0;max-width:480px}
+    .contact-meta{margin-top:28px;display:grid;gap:12px}
+    .contact-meta a{color:#e8eee7;text-decoration:none;display:flex;align-items:center;gap:11px;font-size:14px}
+    .contact-meta a:hover{color:var(--sage)}
+    .contact-meta svg{width:18px;height:18px;color:var(--sage)}
+    .contact-form{background:white;color:var(--ink);padding:30px;border-radius:14px;box-shadow:0 25px 60px rgba(0,0,0,.14)}
+    .form-intro{font-size:13px;color:var(--muted);margin-bottom:22px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+    .field{display:grid;gap:7px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:12px;font-weight:700;color:#37433a}
+    .field input,.field select,.field textarea{width:100%;border:1px solid #d8dfd7;background:#fbfcfa;border-radius:7px;padding:12px 13px;color:var(--ink);font-size:14px}
+    .field textarea{min-height:125px;resize:vertical}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid #9fb49c;outline-offset:1px}
+    .privacy-note{font-size:11px;color:var(--muted);margin:14px 0 18px}
+    .form-submit{width:100%;border:0;cursor:pointer}
+    .form-message{font-size:12px;color:var(--muted);margin:12px 0 0}
+    .site-footer{background:#111a15;color:#c2cbc2;padding:28px 0}
+    .footer-top{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.13)}
+    .footer-brand .brand-name{font-size:18px}
+    .footer-links{display:flex;flex-wrap:wrap;gap:20px}
+    .footer-links a{font-size:12px;text-decoration:none}
+    .footer-links a:hover{color:var(--sage)}
+    .footer-bottom{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;padding-top:19px;font-size:11px;color:#9da99e}
+    .footer-bottom a{color:#c2cbc2;text-decoration:none}
+    .back-top{position:fixed;right:20px;bottom:20px;z-index:80;width:44px;height:44px;border:1px solid #cbd6c8;border-radius:50%;background:var(--forest);color:white;display:grid;place-items:center;text-decoration:none;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .2s;box-shadow:var(--shadow)}
+    .back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+    .back-top svg{width:20px;height:20px}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.in-view{opacity:1;transform:translateY(0)}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+    @media(max-width:980px){
+      .nav-links{gap:15px}.nav-links a{font-size:12px}.nav-cta{padding:11px 13px;font-size:12px}
+      .service-layout,.faq-wrap{grid-template-columns:1fr;gap:30px}
+      .service-layout .section-head{max-width:720px}
+      .approach-grid,.contact-grid{gap:40px}
+      .split{gap:40px}
     }
-    a { color: inherit; }
-    .container { width: min(1120px, 90%); margin: auto; }
-
-    header {
-      background: var(--dark);
-      color: var(--white);
-      border-bottom: 1px solid #39443b;
+    @media(max-width:760px){
+      .container{width:min(var(--max),calc(100% - 36px))}
+      .nav-wrap{min-height:70px}.brand-name{font-size:20px}
+      .menu-toggle{display:grid;place-items:center}
+      .nav-cta{display:none}
+      .nav-links{position:fixed;inset:70px 0 auto 0;background:var(--forest);padding:18px 24px 28px;display:flex;align-items:stretch;flex-direction:column;gap:0;border-bottom:1px solid rgba(255,255,255,.15);box-shadow:0 20px 30px rgba(0,0,0,.18);visibility:hidden;opacity:0;transform:translateY(-8px);transition:all .2s}
+      .nav-links.open{visibility:visible;opacity:1;transform:translateY(0)}
+      .nav-links a{font-size:15px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+      .nav-links a:last-child{border-bottom:0}
+      .hero{min-height:590px}
+      .hero::after{background:linear-gradient(90deg,rgba(18,30,24,.96),rgba(18,30,24,.78)),linear-gradient(0deg,rgba(18,30,24,.3),transparent)}
+      .hero-content{padding:83px 0 95px}
+      .hero-lead{font-size:16px}
+      .scroll-cue{display:none}
+      section{padding:68px 0}
+      .split,.approach-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
+      .image-frame,.image-frame img{min-height:300px}
+      .service-grid{grid-template-columns:1fr 1fr}
+      .method-grid{grid-template-columns:repeat(2,1fr);gap:30px 20px}
+      .approach-image{height:330px}
+      .sectors-grid{grid-template-columns:1fr}
+      .contact-form{padding:23px}
+      .contact-grid{gap:35px}
+      .contact-section::after{font-size:300px;bottom:-120px}
     }
-    nav {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .logo {
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: 4px;
-      text-decoration: none;
-    }
-    .nav-link {
-      text-decoration: none;
-      font-size: 14px;
-      color: #e1e6df;
-    }
-
-    .hero {
-      background: var(--dark);
-      color: var(--white);
-      padding: 105px 0 112px;
-    }
-    .eyebrow {
-      color: var(--green);
-      font-size: 12px;
-      letter-spacing: 2.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1.08;
-      letter-spacing: -2.5px;
-      max-width: 850px;
-      margin: 24px 0;
-      font-weight: 600;
-    }
-    .hero p {
-      color: #d1d8d0;
-      font-size: 18px;
-      max-width: 650px;
-      margin-bottom: 34px;
-    }
-    .button {
-      display: inline-block;
-      padding: 14px 23px;
-      background: var(--green);
-      color: var(--dark);
-      border-radius: 3px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 14px;
-      transition: opacity .2s;
-    }
-    .button:hover { opacity: .85; }
-    section { padding: 82px 0; }
-    .section-light { background: var(--paper); }
-    .section-heading {
-      font-size: clamp(30px, 4vw, 43px);
-      line-height: 1.2;
-      letter-spacing: -1px;
-      max-width: 730px;
-      margin: 12px 0 20px;
-      color: var(--dark);
-    }
-    .intro {
-      max-width: 760px;
-      font-size: 17px;
-      color: var(--muted);
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 42px;
-    }
-    .card {
-      padding: 27px;
-      border: 1px solid var(--line);
-      background: var(--white);
-      border-radius: 4px;
-    }
-    .number {
-      color: #7d987f;
-      font-size: 13px;
-      letter-spacing: 1px;
-      font-weight: 700;
-    }
-    h3 { color: var(--dark); font-size: 20px; margin: 15px 0 10px; }
-    .card p { color: var(--muted); font-size: 15px; margin-bottom: 0; }
-    .method {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 38px;
-    }
-    .step { border-top: 2px solid var(--green); padding-top: 16px; }
-    .step h3 { margin-top: 0; }
-    .contact {
-      background: var(--dark);
-      color: var(--white);
-      text-align: center;
-    }
-    .contact .section-heading { color: var(--white); margin-left: auto; margin-right: auto; }
-    .contact p { color: #d1d8d0; max-width: 600px; margin: 0 auto 28px; }
-    footer {
-      background: #171e19;
-      color: #bdc5bd;
-      padding: 25px 0;
-      font-size: 13px;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    footer a { color: #dce3dc; text-decoration: none; }
-
-    @media (max-width: 760px) {
-      .hero { padding: 76px 0 82px; }
-      h1 { letter-spacing: -1.5px; }
-      section { padding: 62px 0; }
-      .cards { grid-template-columns: 1fr; }
-      .method { grid-template-columns: repeat(2, 1fr); }
-      nav { min-height: 72px; }
-    }
-    @media (max-width: 420px) {
-      .method { grid-template-columns: 1fr; }
-      .nav-link { font-size: 12px; }
+    @media(max-width:480px){
+      .hero{min-height:620px}
+      h1{font-size:43px;letter-spacing:-.045em}
+      .hero-actions{align-items:stretch;flex-direction:column;max-width:310px}
+      .hero-actions .button{width:100%}
+      .service-grid,.method-grid,.form-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .service-card{padding:22px}
+      .method-step{padding-top:15px}
+      .footer-top{align-items:flex-start;flex-direction:column}
+      .footer-links{gap:14px}
+      .footer-bottom{flex-direction:column}
+      .section-head h2,.split-copy h2,.contact-copy h2{font-size:32px}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a class="logo" href="#" aria-label="Risolute, homepage">RISOLUTE</a>
-        <a class="nav-link" href="#contatti">PARLIAMONE ↗</a>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+  <header class="site-header" id="inizio">
+    <div class="container nav-wrap">
+      <a class="brand brand-placeholder" href="#inizio" aria-label="Risolute, torna all'inizio"><span class="wordmark">RISOLUTE</span><span class="wordmark-sub">CONSULENZA OPERATIVA</span></a>
+      <nav class="nav-links" id="nav-links" aria-label="Menu principale">
+        <a href="#inizio">Home</a>
+        <a href="#approccio">Chi siamo</a>
+        <a href="#servizi">Cosa facciamo</a>
+        <a href="#metodo">Metodo</a>
+        <a href="#ambiti">Ambiti</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contatti">Contatti</a>
       </nav>
+      <a class="nav-cta" href="#contatti">Parliamo del tuo problema <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Apri menu" aria-controls="nav-links" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="contenuto">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="container">
-        <div class="eyebrow">Consulenza operativa · Problem solving</div>
-        <h1>Diamo metodo alle complessità.</h1>
-        <p>
-          Affianchiamo le aziende nell'analisi dei problemi operativi,
-          nell'individuazione delle inefficienze e nella definizione di
-          soluzioni concrete. Dalle criticità alle priorità, dalle idee
-          alle azioni.
-        </p>
-        <a class="button" href="#contatti">Parliamo del tuo problema&nbsp; →</a>
+        <div class="hero-content">
+          <div class="eyebrow">Consulenza operativa · Problem solving</div>
+          <h1 id="hero-title">Diamo metodo<br>alle complessità.</h1>
+          <p class="hero-lead">Affianchiamo aziende e professionisti nell'analisi dei processi, nell'individuazione delle inefficienze e nella definizione di soluzioni concrete. Dalle criticità alle priorità, dalle idee alle azioni.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contatti">Parliamo del tuo problema <span aria-hidden="true">→</span></a>
+            <a class="button button-outline" href="#servizi">Scopri come possiamo aiutarti</a>
+          </div>
+          <p class="hero-note">Un approccio strutturato, costruito intorno alla tua situazione.</p>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#punto-di-partenza" aria-label="Scorri alla sezione successiva">Scorri</a>
+    </section>
+
+    <section id="punto-di-partenza">
+      <div class="container split">
+        <div class="image-frame reveal">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1100&q=85" alt="Professionisti che esaminano documenti e analizzano un processo di lavoro" loading="lazy" width="1100" height="800">
+          <div class="image-caption">Capire il problema è il primo passo per migliorare il modo in cui si lavora.</div>
+        </div>
+        <div class="split-copy reveal">
+          <div class="eyebrow">Il punto di partenza</div>
+          <h2>Quando la complessità rallenta il lavoro.</h2>
+          <p>Attività da coordinare, responsabilità poco chiare, inefficienze ricorrenti o problemi che si ripresentano. Quando le difficoltà diventano parte della routine, è facile abituarsi a perdere tempo senza riuscire a capire dove intervenire.</p>
+          <p>Risolute aiuta a fare un passo indietro, leggere la situazione con metodo e mettere ordine nelle priorità.</p>
+          <ul class="problem-list">
+            <li><span class="check" aria-hidden="true">✓</span><span>Attività ripetitive che assorbono tempo e risorse.</span></li>
+            <li><span class="check" aria-hidden="true">✓</span><span>Errori e imprevisti che si ripresentano.</span></li>
+            <li><span class="check" aria-hidden="true">✓</span><span>Informazioni, compiti o responsabilità poco coordinati.</span></li>
+            <li><span class="check" aria-hidden="true">✓</span><span>Problemi che richiedono analisi, priorità e una direzione chiara.</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <div class="eyebrow">Il punto di partenza</div>
-        <h2 class="section-heading">Quando la complessità rallenta il lavoro.</h2>
-        <p class="intro">
-          Attività da coordinare, responsabilità poco chiare, inefficienze
-          ricorrenti o problemi che si ripresentano. Il primo passo è
-          comprendere cosa succede, individuare le cause e mettere ordine
-          nelle priorità.
-        </p>
-      </div>
-    </section>
-
-    <section class="section-light">
-      <div class="container">
-        <div class="eyebrow">Aree di intervento</div>
-        <h2 class="section-heading">Dall'analisi a un piano d'azione.</h2>
-        <p class="intro">
-          Un approccio pratico e strutturato, da definire in funzione
-          della situazione, degli obiettivi e delle risorse disponibili.
-        </p>
-        <div class="cards">
-          <article class="card">
-            <div class="number">01 / ANALISI</div>
+    <section class="soft-section" id="servizi">
+      <div class="container service-layout">
+        <div class="section-head reveal">
+          <div class="eyebrow">Cosa facciamo</div>
+          <h2>Dall'analisi a un piano d'azione.</h2>
+          <p>Un approccio pratico e strutturato, definito in funzione della situazione, degli obiettivi e delle risorse disponibili. Ogni intervento parte da una criticità concreta.</p>
+          <a class="button button-primary" href="#contatti">Valutiamo la tua situazione <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M8 10.5h5M10.5 8v5"/></svg></div>
+            <div class="card-index">01 / ANALISI</div>
             <h3>Analisi operativa</h3>
-            <p>
-              Ricostruire i processi, far emergere le criticità e distinguere
-              i sintomi dalle possibili cause del problema.
-            </p>
+            <p>Ricostruire i processi, far emergere le criticità e distinguere i sintomi dalle possibili cause del problema.</p>
+            <a class="card-link" href="#contatti" data-interest="Analisi operativa">Parliamone <span aria-hidden="true">→</span></a>
           </article>
-          <article class="card">
-            <div class="number">02 / COORDINAMENTO</div>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 4.5a3 3 0 0 1 0 5.8M18 14a5 5 0 0 1 3 4.5V20"/></svg></div>
+            <div class="card-index">02 / ORGANIZZAZIONE</div>
             <h3>Organizzazione del lavoro</h3>
-            <p>
-              Chiarire attività, priorità, responsabilità e passaggi tra
-              persone e funzioni aziendali.
-            </p>
+            <p>Chiarire attività, priorità, responsabilità e passaggi tra persone e funzioni aziendali.</p>
+            <a class="card-link" href="#contatti" data-interest="Organizzazione del lavoro">Parliamone <span aria-hidden="true">→</span></a>
           </article>
-          <article class="card">
-            <div class="number">03 / SOLUZIONI</div>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 19 4M8 4h11v11"/><path d="M4 10v10h10"/></svg></div>
+            <div class="card-index">03 / SOLUZIONI</div>
             <h3>Problem solving</h3>
-            <p>
-              Valutare le alternative e tradurre le soluzioni individuate
-              in azioni concrete, verificabili e ordinate per priorità.
-            </p>
+            <p>Valutare le alternative e tradurre le soluzioni individuate in azioni concrete, ordinate per priorità.</p>
+            <a class="card-link" href="#contatti" data-interest="Problem solving">Parliamone <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h16"/><circle cx="9" cy="5" r="2" fill="#fff"/><circle cx="15" cy="12" r="2" fill="#fff"/><circle cx="7" cy="19" r="2" fill="#fff"/></svg></div>
+            <div class="card-index">04 / MIGLIORAMENTO</div>
+            <h3>Procedure e flussi di lavoro</h3>
+            <p>Individuare passaggi ridondanti, punti di errore e opportunità per rendere le attività più lineari.</p>
+            <a class="card-link" href="#contatti" data-interest="Procedure e flussi di lavoro">Parliamone <span aria-hidden="true">→</span></a>
           </article>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="metodo">
       <div class="container">
-        <div class="eyebrow">Il metodo Risolute</div>
-        <h2 class="section-heading">Un percorso chiaro. Un passo alla volta.</h2>
-        <div class="method">
-          <div class="step">
-            <h3>Comprendere</h3>
-            <p>Ascoltare le esigenze e definire il problema da affrontare.</p>
+        <div class="section-head reveal">
+          <div class="eyebrow">Il metodo Risolute</div>
+          <h2>Un percorso chiaro. Un passo alla volta.</h2>
+          <p>Non partiamo da soluzioni preconfezionate. Partiamo dal contesto, definiamo il problema e costruiamo un percorso proporzionato alle esigenze reali.</p>
+        </div>
+        <div class="method-grid">
+          <article class="method-step reveal"><span class="step-number">01</span><h3>Comprendere</h3><p>Ascoltare le esigenze, raccogliere le informazioni e definire il problema da affrontare.</p></article>
+          <article class="method-step reveal"><span class="step-number">02</span><h3>Analizzare</h3><p>Esaminare il processo, i vincoli e le possibili cause della criticità.</p></article>
+          <article class="method-step reveal"><span class="step-number">03</span><h3>Definire</h3><p>Confrontare le opzioni, individuare le priorità e strutturare le azioni.</p></article>
+          <article class="method-step reveal"><span class="step-number">04</span><h3>Migliorare</h3><p>Indicare i prossimi passi e i criteri utili per verificare l'efficacia degli interventi.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach" id="approccio">
+      <div class="container approach-grid">
+        <div class="approach-image reveal">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85" alt="Ambiente di lavoro professionale luminoso e organizzato" loading="lazy" width="1200" height="900">
+          <div class="approach-image-label"><div class="eyebrow">Un approccio flessibile</div><h3>Soluzioni su misura per ogni esigenza.</h3></div>
+        </div>
+        <div class="reveal">
+          <div class="section-head">
+            <div class="eyebrow">Come lavoriamo</div>
+            <h2>Metodo, chiarezza e concretezza.</h2>
+            <p>Ogni realtà è diversa. Per questo il lavoro viene adattato al contesto, alle priorità e alle risorse disponibili, con attenzione alla praticità delle soluzioni.</p>
           </div>
-          <div class="step">
-            <h3>Analizzare</h3>
-            <p>Esaminare il processo, i vincoli e le cause della criticità.</p>
-          </div>
-          <div class="step">
-            <h3>Definire</h3>
-            <p>Individuare le opzioni e stabilire le priorità operative.</p>
-          </div>
-          <div class="step">
-            <h3>Migliorare</h3>
-            <p>Organizzare le azioni e identificare come verificarne i risultati.</p>
+          <div class="principles">
+            <div class="principle"><div class="principle-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m12 12 7-7"/></svg></div><div><h3>Un problema definito</h3><p>Partiamo da una criticità concreta, chiarendo obiettivi, vincoli e risultati attesi.</p></div></div>
+            <div class="principle"><div class="principle-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="5"/></svg></div><div><h3>Un metodo strutturato</h3><p>Analisi, priorità e azioni vengono organizzate in un percorso comprensibile e verificabile.</p></div></div>
+            <div class="principle"><div class="principle-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="#17231e"/><circle cx="15" cy="12" r="2" fill="#17231e"/><circle cx="7" cy="18" r="2" fill="#17231e"/></svg></div><div><h3>Un intervento proporzionato</h3><p>La proposta viene definita dopo un primo confronto, in base alla complessità e alle esigenze emerse.</p></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="contatti">
+    <section id="ambiti" class="soft-section">
       <div class="container">
-        <div class="eyebrow">Primo confronto</div>
-        <h2 class="section-heading">Ogni soluzione parte dalla domanda giusta.</h2>
-        <p>
-          Raccontaci la situazione che vuoi affrontare. Possiamo partire
-          da un confronto iniziale per capire il problema e valutare
-          insieme il percorso più adatto.
-        </p>
-        <a class="button" href="mailto:amministrazione@risolute.it?subject=Richiesta%20di%20contatto%20-%20Risolute">
-          Scrivi a Risolute&nbsp; →
-        </a>
+        <div class="section-head reveal">
+          <div class="eyebrow">Ambiti di applicazione</div>
+          <h2>Un approccio trasversale ai problemi operativi.</h2>
+          <p>Il metodo può essere applicato in contesti diversi, quando serve comprendere una criticità, organizzare il lavoro o migliorare un processo.</p>
+        </div>
+        <div class="sectors-grid">
+          <article class="sector reveal"><div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V7l8-4 8 4v13M2 20h20M8 10h2M14 10h2M8 14h2M14 14h2M10 20v-3h4v3"/></svg></div><h3>Imprese e servizi</h3><p>Processi ricorrenti, passaggi operativi, gestione delle richieste e coordinamento delle attività.</p></article>
+          <article class="sector reveal"><div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h8"/></svg></div><h3>Studi e professionisti</h3><p>Organizzazione delle attività, gestione delle priorità, procedure e flussi di informazioni.</p></article>
+          <article class="sector reveal"><div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6M8 10h.01M16 10h.01"/></svg></div><h3>Attività tecniche e operative</h3><p>Coordinamento di interventi, gestione delle commesse e analisi delle criticità organizzative.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container faq-wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Domande frequenti</div>
+          <h2>Prima di iniziare, facciamo chiarezza.</h2>
+          <p>Il primo confronto serve a capire la situazione, senza impegno e senza partire da una soluzione già decisa.</p>
+          <a class="button button-primary" href="#contatti">Parliamone <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Che tipo di problemi posso sottoporvi?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer" hidden>Puoi partire da inefficienze, errori ricorrenti, difficoltà nel coordinamento, passaggi poco chiari o processi che richiedono troppo tempo. Nel primo confronto valutiamo se il problema rientra nell'ambito del servizio.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Come funziona il primo contatto?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer" hidden>Ci racconti brevemente la situazione e il risultato che vorresti ottenere. Il confronto serve a chiarire il problema, le informazioni necessarie e l'eventuale percorso di lavoro.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Il preventivo è standard?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer" hidden>No. Dopo una prima valutazione definiamo una proposta in funzione del problema, del perimetro dell'analisi, delle informazioni disponibili e delle attività richieste.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>È necessario avere già una soluzione in mente?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer" hidden>No. È sufficiente saper descrivere cosa non funziona, quando si verifica e quali conseguenze produce. L'analisi aiuta a mettere a fuoco le possibili cause e le priorità.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>L'analisi comprende anche l'implementazione?</span><span aria-hidden="true">+</span></button>
+            <div class="faq-answer" hidden>Il perimetro viene concordato prima di iniziare. Il Check-up può concludersi con un piano d'azione; eventuali attività di implementazione o affiancamento vengono valutate separatamente.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contatti">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <div class="eyebrow">Primo confronto</div>
+          <h2>Hai un problema che merita un approccio diverso?</h2>
+          <p>Raccontaci cosa sta succedendo, quali difficoltà stai incontrando e cosa vorresti migliorare. Partiremo dalla tua situazione per valutare il percorso più adatto.</p>
+          <p>Il primo confronto è conoscitivo e senza impegno. Se ci sono i presupposti, riceverai una proposta calibrata sulle esigenze emerse.</p>
+          <div class="contact-meta">
+            <a href="mailto:amministrazione@risolute.it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>amministrazione@risolute.it</a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contact-form">
+          <h3>Descrivici la tua situazione</h3>
+          <p class="form-intro">Pochi dettagli ci aiuteranno a comprendere meglio la richiesta.</p>
+          <div class="form-grid">
+            <div class="field"><label for="nome">Nome *</label><input id="nome" name="nome" autocomplete="name" required placeholder="Il tuo nome"></div>
+            <div class="field"><label for="azienda">Azienda o attività</label><input id="azienda" name="azienda" autocomplete="organization" placeholder="Nome dell'attività"></div>
+            <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="nome@azienda.it"></div>
+            <div class="field"><label for="tema">Ambito della richiesta</label><select id="tema" name="tema"><option value="Da valutare">Seleziona un'opzione</option><option>Analisi operativa</option><option>Organizzazione del lavoro</option><option>Processi e inefficienze</option><option>Problem solving</option><option>Procedure e flussi di lavoro</option><option>Gestione delle attività o commesse</option><option>Altro / da valutare</option></select></div>
+            <div class="field full"><label for="messaggio">Qual è il problema che vorresti affrontare? *</label><textarea id="messaggio" name="messaggio" required minlength="15" placeholder="Descrivi brevemente cosa succede, quali difficoltà incontri e cosa vorresti migliorare."></textarea></div>
+          </div>
+          <p class="privacy-note">Usando il pulsante, si aprirà il tuo programma di posta con il messaggio precompilato. Non vengono inviati dati a questo sito. Evita di inserire informazioni riservate o dati personali non necessari.</p>
+          <button class="button button-primary form-submit" type="submit">Prepara la richiesta <span aria-hidden="true">→</span></button>
+          <p class="form-message" id="form-message" role="status">I campi contrassegnati con * sono obbligatori.</p>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <strong>RISOLUTE</strong>
-      <span>Diamo metodo alle complessità.</span>
-      <a href="mailto:amministrazione@risolute.it">amministrazione@risolute.it</a>
-      <span>© 2026 Risolute</span>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand footer-brand brand-placeholder" href="#inizio" aria-label="Risolute, torna all'inizio"><span class="wordmark">RISOLUTE</span><span class="wordmark-sub">CONSULENZA OPERATIVA</span></a>
+        <div class="footer-links"><a href="#approccio">Approccio</a><a href="#servizi">Servizi</a><a href="#metodo">Metodo</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div>
+        <a href="mailto:amministrazione@risolute.it">amministrazione@risolute.it</a>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> Risolute. Tutti i diritti riservati.</span><span>Diamo metodo alle complessità.</span></div>
     </div>
   </footer>
+  <a class="back-top" id="back-top" href="#inizio" aria-label="Torna all'inizio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 6-6 6 6"/></svg></a>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('menu-toggle');
+      const nav = document.getElementById('nav-links');
+      const body = document.body;
+
+      function closeMenu() {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Apri menu');
+        body.classList.remove('menu-open');
+      }
+      toggle.addEventListener('click', function () {
+        const open = toggle.getAttribute('aria-expanded') !== 'true';
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+        nav.classList.toggle('open', open);
+        body.classList.toggle('menu-open', open);
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeMenu();
+      });
+
+      document.querySelectorAll('.faq-question').forEach(function (button) {
+        button.addEventListener('click', function () {
+          const expanded = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', String(!expanded));
+          button.nextElementSibling.hidden = expanded;
+        });
+      });
+
+      document.querySelectorAll('[data-interest]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          const select = document.getElementById('tema');
+          const interest = link.getAttribute('data-interest');
+          const option = Array.from(select.options).find(function (item) { return item.text === interest || item.value === interest; });
+          if (option) select.value = option.value || option.text;
+        });
+      });
+
+      document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const form = event.currentTarget;
+        if (!form.reportValidity()) return;
+        const data = new FormData(form);
+        const subject = 'Richiesta di confronto - Risolute';
+        const lines = [
+          'Buongiorno Risolute,',
+          '',
+          'vorrei sottoporvi una richiesta di confronto operativo.',
+          '',
+          'Nome: ' + data.get('nome'),
+          'Azienda o attività: ' + (data.get('azienda') || 'Non indicata'),
+          'Email: ' + data.get('email'),
+          'Ambito: ' + data.get('tema'),
+          '',
+          'Descrizione del problema:',
+          data.get('messaggio'),
+          '',
+          'Grazie.'
+        ];
+        const mailto = 'mailto:amministrazione@risolute.it?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+        document.getElementById('form-message').textContent = 'Si sta aprendo il programma di posta. Controlla il messaggio e invialo per completare la richiesta.';
+        window.location.href = mailto;
+      });
+
+      const backTop = document.getElementById('back-top');
+      function updateBackTop() {
+        backTop.classList.toggle('visible', window.scrollY > 500);
+      }
+      window.addEventListener('scroll', updateBackTop, { passive: true });
+      updateBackTop();
+
+      const revealItems = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealItems.forEach(function (item) { observer.observe(item); });
+      } else {
+        revealItems.forEach(function (item) { item.classList.add('in-view'); });
+      }
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
