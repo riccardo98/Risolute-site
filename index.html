@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Risolute offre consulenza operativa e problem solving per aziende e professionisti: analisi delle criticità, organizzazione del lavoro e piani d'azione concreti.">
   <meta name="theme-color" content="#17231e">
@@ -16,17 +17,19 @@
   <meta property="og:image" content="https://www.risolute.it/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Risolute. Diamo metodo alle complessità.">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Risolute","url":"https://www.risolute.it/","logo":"https://www.risolute.it/risolute-profilo.png","image":"https://www.risolute.it/og-image.png","email":"info@risolute.it","description":"Consulenza operativa e problem solving per aziende e professionisti: analisi delle criticità, organizzazione del lavoro e piani d'azione concreti.","areaServed":"IT"}</script>
   <link rel="canonical" href="https://www.risolute.it/">
   <link rel="apple-touch-icon" href="risolute-profilo.png">
   <title>Risolute | Diamo metodo alle complessità</title>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --forest:#17231e; --forest-2:#223129; --sage:#b7c8b4; --sage-dark:#748b76;
+      --forest:#17231e; --forest-2:#223129; --sage:#b7c8b4; --sage-dark:#566e5a;
       --paper:#f6f7f3; --white:#fff; --ink:#202a24; --muted:#68736b;
       --line:#dfe5dc; --shadow:0 18px 50px rgba(23,35,30,.10);
       --radius:16px; --max:1160px;
@@ -180,9 +183,9 @@
     .back-top{position:fixed;right:20px;bottom:20px;z-index:80;width:44px;height:44px;border:1px solid #cbd6c8;border-radius:50%;background:var(--forest);color:white;display:grid;place-items:center;text-decoration:none;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .2s;box-shadow:var(--shadow)}
     .back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
     .back-top svg{width:20px;height:20px}
-    .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
-    .reveal.in-view{opacity:1;transform:translateY(0)}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+    .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+    .js .reveal.in-view{opacity:1;transform:translateY(0)}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.js .reveal{opacity:1;transform:none}}
     @media(max-width:980px){
       .nav-links{gap:15px}.nav-links a{font-size:12px}.nav-cta{padding:11px 13px;font-size:12px}
       .service-layout,.faq-wrap{grid-template-columns:1fr;gap:30px}
@@ -250,6 +253,41 @@
       .nav-links .nav-sub a{display:block;font-size:13px;padding:8px 0;color:#b7c8b4;border-bottom:0}
       .nav-links>a[href="#servizi"]{border-bottom:0}
     }
+    .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+    .copy-mail{justify-self:start;margin-left:29px;background:transparent;border:1px solid rgba(255,255,255,.3);color:#e8eee7;border-radius:6px;padding:7px 12px;font-size:12px;cursor:pointer}
+    .copy-mail:hover{border-color:var(--sage);color:var(--sage)}
+    @media(max-width:760px){.hero::before{background-image:url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=70")}}
+    .form-legal a,.footer-bottom a{text-decoration:underline}
+    .situations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .situation{display:flex;flex-direction:column;padding:26px;border:1px solid var(--line);border-radius:12px;background:#fff;transition:border-color .2s,box-shadow .2s}
+    .situation:hover{border-color:#c5d2c2;box-shadow:var(--shadow)}
+    .situation h3{font-size:20px;color:var(--forest);margin-bottom:10px}
+    .situation p{font-size:14px;color:var(--muted);margin-bottom:18px}
+    .situation .card-link{margin-top:auto;font-size:13px;font-weight:700;color:#3d5641;text-decoration:none}
+    .situation .card-link:hover{text-decoration:underline}
+    .paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch;margin-top:8px}
+    .path{position:relative;display:flex;flex-direction:column;padding:30px 26px 28px;border:1px solid var(--line);border-radius:14px;background:#fff}
+    .path.featured{border:2px solid var(--forest);box-shadow:var(--shadow)}
+    .path-badge{position:absolute;top:-12px;left:24px;background:var(--forest);color:#fff;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 11px;border-radius:20px}
+    .path .card-index{margin:0 0 6px}
+    .path h3{font-size:24px;color:var(--forest);margin-bottom:8px}
+    .path-for{font-size:14px;color:var(--muted);margin-bottom:20px}
+    .path-label{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--sage-dark);border-top:1px solid var(--line);padding-top:16px}
+    .path-list{margin:12px 0 26px;gap:10px}
+    .path-list li{font-size:14px}
+    .path .button{margin-top:auto}
+    .button-ghost{border-color:var(--forest);color:var(--forest);background:transparent}
+    .button-ghost:hover{background:var(--forest);color:#fff}
+    .swipe-hint{display:none}
+    .paths-note{margin:22px 0 0;font-size:14px;color:var(--muted)}
+    @media(max-width:980px){.paths{grid-template-columns:1fr;max-width:560px}}
+    @media(max-width:760px){
+      .situations,.paths{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-18px;padding:14px 18px 8px;scroll-padding-inline:18px;scrollbar-width:none;max-width:none}
+      .situations::-webkit-scrollbar,.paths::-webkit-scrollbar{display:none}
+      .situation,.path{flex:0 0 84%;scroll-snap-align:start}
+      .situation{padding:20px}.path{padding:26px 20px 22px}
+      .swipe-hint{display:block;font-size:12px;color:var(--sage-dark);margin:6px 0 0}
+    }
   </style>
 </head>
 <body>
@@ -258,16 +296,16 @@
     <div class="container nav-wrap">
       <a class="brand brand-placeholder" href="#inizio" aria-label="Risolute, torna all'inizio"><img class="logo-img" src="risolute-logo-light.svg" alt="Risolute" width="197" height="26"><span class="wordmark-sub">CONSULENZA OPERATIVA</span></a>
       <nav class="nav-links" id="nav-links" aria-label="Menu principale">
-        <a href="#inizio">Home</a>
         <a href="#approccio">Approccio</a>
-        <a href="#servizi">Cosa facciamo</a>
+        <a href="#servizi">Servizi</a>
         <div class="nav-sub"><a href="#servizi" data-open="0">Analisi operativa</a><a href="#servizi" data-open="1">Organizzazione del lavoro</a><a href="#servizi" data-open="2">Problem solving</a><a href="#servizi" data-open="3">Procedure e flussi</a></div>
         <a href="#metodo">Metodo</a>
+        <a href="#percorsi">Percorsi</a>
         <a href="#ambiti">Ambiti</a>
         <a href="#faq">FAQ</a>
         <a href="#contatti">Contatti</a>
       </nav>
-      <a class="nav-cta" href="#contatti">Parliamo del tuo problema <span aria-hidden="true">↗</span></a>
+      <a class="nav-cta" href="#contatti">Richiedi un confronto <span aria-hidden="true">↗</span></a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Apri menu" aria-controls="nav-links" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -282,8 +320,8 @@
           <h1 id="hero-title">Diamo metodo<br>alle complessità.</h1>
           <p class="hero-lead">Aiutiamo aziende e professionisti a capire dove si perde tempo, quali problemi si ripetono e da dove conviene partire. Dall'analisi dei processi a un piano d'azione chiaro, con priorità e passi concreti.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#contatti">Parliamo del tuo problema <span aria-hidden="true">→</span></a>
-            <a class="button button-outline" href="#servizi">Scopri come possiamo aiutarti</a>
+            <a class="button button-primary" href="#contatti">Richiedi un primo confronto <span aria-hidden="true">→</span></a>
+            <a class="button button-outline" href="#servizi">Scopri i servizi</a>
           </div>
           <p class="hero-note">Primo confronto conoscitivo, senza impegno.</p>
         </div>
@@ -292,30 +330,21 @@
     </section>
 
     <section id="punto-di-partenza">
-      <div class="container split">
-        <div class="image-frame reveal">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1100&q=85" alt="Professionisti che esaminano documenti e analizzano un processo di lavoro" loading="lazy" width="1100" height="800">
-          <div class="image-caption">Capire il problema è il primo passo per migliorare il modo in cui si lavora.</div>
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Da dove partire</div>
+          <h2>Riconosci una di queste situazioni?</h2>
+          <p>Ogni intervento parte da un problema concreto. Ecco i casi più comuni e come li affrontiamo.</p>
         </div>
-        <div class="split-copy reveal">
-          <div class="eyebrow">Il punto di partenza</div>
-          <h2>Quando la complessità rallenta il lavoro.</h2>
-          <p>Attività da coordinare, responsabilità poco chiare, inefficienze ricorrenti o problemi che si ripresentano. Quando le difficoltà diventano parte della routine, è facile abituarsi a perdere tempo senza riuscire a capire dove intervenire.</p>
-          <p>Risolute ti aiuta a fare un passo indietro, individuare le cause e mettere in ordine le priorità.</p>
-          <ul class="problem-list">
-            <li><span class="check" aria-hidden="true">✓</span><span>Attività ripetitive che assorbono tempo e risorse.</span></li>
-            <li><span class="check" aria-hidden="true">✓</span><span>Errori e imprevisti che si ripresentano.</span></li>
-            <li><span class="check" aria-hidden="true">✓</span><span>Informazioni, compiti o responsabilità poco coordinati.</span></li>
-            <li><span class="check" aria-hidden="true">✓</span><span>Problemi che richiedono analisi, priorità e una direzione chiara.</span></li>
-          </ul>
-        </div>
+        <div class="situations"><article class="situation reveal"><h3>Si perde tempo, ma non è chiaro dove.</h3><p>Ricostruiamo il processo passo per passo e mettiamo in evidenza attese, passaggi inutili e lavoro ripetuto.</p><a class="card-link" href="#percorso-checkup">Percorso indicato: Check-up <span aria-hidden="true">→</span></a></article><article class="situation reveal"><h3>Gli stessi errori si ripetono.</h3><p>Risaliamo alle cause, distinguendole dai sintomi, e definiamo controlli e procedure per non ricadere negli stessi problemi.</p><a class="card-link" href="#percorso-checkup">Percorso indicato: Check-up <span aria-hidden="true">→</span></a></article><article class="situation reveal"><h3>Sai cosa non va, ma non da dove partire.</h3><p>Mettiamo in ordine le priorità e trasformiamo le idee in un piano con azioni, responsabilità e tempi.</p><a class="card-link" href="#percorso-piano">Percorso indicato: Piano d'azione <span aria-hidden="true">→</span></a></article><article class="situation reveal"><h3>Hai un piano, ma fatica a diventare realtà.</h3><p>Ti affianchiamo nell'attuazione: verifichiamo l'avanzamento, risolviamo gli ostacoli e misuriamo i risultati.</p><a class="card-link" href="#percorso-affiancamento">Percorso indicato: Affiancamento <span aria-hidden="true">→</span></a></article></div>
+        <p class="swipe-hint" aria-hidden="true">Scorri per vedere tutte le opzioni →</p>
       </div>
     </section>
 
     <section class="soft-section" id="servizi">
       <div class="container service-layout">
         <div class="section-head reveal">
-          <div class="eyebrow">Cosa facciamo</div>
+          <div class="eyebrow">I nostri servizi</div>
           <h2>Dall'analisi a un piano d'azione.</h2>
           <p>Ogni intervento parte da un problema concreto e si conclude con indicazioni che puoi applicare subito.</p>
           <a class="button button-primary" href="#contatti">Richiedi un confronto <span aria-hidden="true">→</span></a>
@@ -369,11 +398,24 @@
       </div>
     </section>
 
+    <section class="soft-section" id="percorsi">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Percorsi</div>
+          <h2>Scegli il livello di supporto che ti serve.</h2>
+          <p>Tre percorsi, dal più rapido al più completo. Il contenuto preciso viene definito insieme dopo il primo confronto.</p>
+        </div>
+        <div class="paths"><article class="path featured reveal" id="percorso-checkup"><span class="path-badge">Consigliato per iniziare</span><div class="card-index">01</div><h3>Check-up</h3><p class="path-for">Hai un problema preciso e vuoi capirne le cause prima di decidere cosa fare.</p><div class="path-label">Cosa ricevi</div><ul class="problem-list path-list"><li><span class="check" aria-hidden="true">✓</span><span>Analisi del processo e dei punti critici</span></li><li><span class="check" aria-hidden="true">✓</span><span>Cause principali, distinte dai sintomi</span></li><li><span class="check" aria-hidden="true">✓</span><span>Priorità di intervento in un documento di sintesi</span></li></ul><a class="button button-primary" href="#contatti" data-interest="Check-up">Richiedi il Check-up <span aria-hidden="true">→</span></a></article><article class="path reveal" id="percorso-piano"><div class="card-index">02</div><h3>Piano d'azione</h3><p class="path-for">Vuoi passare dall'analisi a un piano concreto e condiviso.</p><div class="path-label">Cosa ricevi</div><ul class="problem-list path-list"><li><span class="check" aria-hidden="true">✓</span><span>Tutto ciò che comprende il Check-up</span></li><li><span class="check" aria-hidden="true">✓</span><span>Azioni ordinate per priorità, con responsabilità e tempi</span></li><li><span class="check" aria-hidden="true">✓</span><span>Indicatori per verificare i risultati</span></li></ul><a class="button button-ghost" href="#contatti" data-interest="Piano d'azione">Richiedi il Piano d'azione <span aria-hidden="true">→</span></a></article><article class="path reveal" id="percorso-affiancamento"><div class="card-index">03</div><h3>Affiancamento</h3><p class="path-for">Vuoi un supporto anche mentre le azioni vengono messe in pratica.</p><div class="path-label">Cosa ricevi</div><ul class="problem-list path-list"><li><span class="check" aria-hidden="true">✓</span><span>Tutto ciò che comprende il Piano d'azione</span></li><li><span class="check" aria-hidden="true">✓</span><span>Incontri periodici di verifica dell'avanzamento</span></li><li><span class="check" aria-hidden="true">✓</span><span>Revisione delle azioni in base ai risultati</span></li></ul><a class="button button-ghost" href="#contatti" data-interest="Affiancamento">Richiedi l'Affiancamento <span aria-hidden="true">→</span></a></article></div>
+        <p class="swipe-hint" aria-hidden="true">Scorri per vedere tutte le opzioni →</p>
+        <p class="paths-note">Il preventivo è definito su misura dopo il primo confronto, conoscitivo e senza impegno.</p>
+      </div>
+    </section>
+
     <section class="approach" id="approccio">
       <div class="container approach-grid">
         <div class="approach-image reveal">
           <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85" alt="Ambiente di lavoro professionale luminoso e organizzato" loading="lazy" width="1200" height="900">
-          <div class="approach-image-label"><div class="eyebrow">Un approccio flessibile</div><h3>Soluzioni su misura per ogni esigenza.</h3></div>
+          <div class="approach-image-label"><div class="eyebrow">Un approccio flessibile</div><h3>Ogni intervento parte dal tuo contesto.</h3></div>
         </div>
         <div class="reveal">
           <div class="section-head">
@@ -432,7 +474,7 @@
           </div>
           <div class="faq-item">
             <button class="faq-question" type="button" aria-expanded="false"><span>L'analisi comprende anche l'implementazione?</span><span aria-hidden="true">+</span></button>
-            <div class="faq-answer" hidden>Il perimetro viene concordato prima di iniziare. L'analisi si conclude con un piano d'azione. Eventuali attività di implementazione o affiancamento vengono valutate e concordate separatamente.</div>
+            <div class="faq-answer" hidden>Il perimetro viene concordato prima di iniziare. Dipende dal percorso. Check-up e Piano d'azione si concludono con indicazioni scritte; l'Affiancamento comprende anche il supporto mentre le azioni vengono messe in pratica.</div>
           </div>
         </div>
       </div>
@@ -446,7 +488,8 @@
           <p>Raccontaci cosa sta succedendo, quali difficoltà stai incontrando e cosa vorresti migliorare. Partiremo dalla tua situazione per valutare il percorso più adatto.</p>
           <p>Il primo confronto è conoscitivo e senza impegno. Se ci sono i presupposti, riceverai una proposta calibrata sulle esigenze emerse.</p>
           <div class="contact-meta">
-            <a href="mailto:amministrazione@risolute.it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>amministrazione@risolute.it</a>
+            <a href="mailto:info@risolute.it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>info@risolute.it</a>
+            <button type="button" class="copy-mail" id="copy-mail">Copia indirizzo</button>
           </div>
         </div>
         <form class="contact-form reveal" id="contact-form">
@@ -456,11 +499,14 @@
             <div class="field"><label for="nome">Nome *</label><input id="nome" name="nome" autocomplete="name" required placeholder="Il tuo nome"></div>
             <div class="field"><label for="azienda">Azienda o attività</label><input id="azienda" name="azienda" autocomplete="organization" placeholder="Nome dell'attività"></div>
             <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="nome@azienda.it"></div>
-            <div class="field"><label for="tema">Ambito della richiesta</label><select id="tema" name="tema"><option value="Da valutare">Seleziona un'opzione</option><option>Analisi operativa</option><option>Organizzazione del lavoro</option><option>Processi e inefficienze</option><option>Problem solving</option><option>Procedure e flussi di lavoro</option><option>Gestione delle attività o commesse</option><option>Altro / da valutare</option></select></div>
+            <div class="field"><label for="tema">Ambito della richiesta</label><select id="tema" name="tema"><option value="Da valutare">Seleziona un'opzione</option><option>Check-up</option><option>Piano d'azione</option><option>Affiancamento</option><option>Analisi operativa</option><option>Organizzazione del lavoro</option><option>Processi e inefficienze</option><option>Problem solving</option><option>Procedure e flussi di lavoro</option><option>Gestione delle attività o commesse</option><option>Altro / da valutare</option></select></div>
+            <div class="field full"><label for="telefono">Telefono (facoltativo)</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" placeholder="Se preferisci essere richiamato"></div>
             <div class="field full"><label for="messaggio">Qual è il problema che vorresti affrontare? *</label><textarea id="messaggio" name="messaggio" required minlength="15" placeholder="Descrivi brevemente cosa succede, quali difficoltà incontri e cosa vorresti migliorare."></textarea></div>
           </div>
-          <p class="privacy-note">Usando il pulsante, si aprirà il tuo programma di posta con il messaggio precompilato. Non vengono inviati dati a questo sito. Evita di inserire informazioni riservate o dati personali non necessari.</p>
-          <button class="button button-primary form-submit" type="submit">Prepara la richiesta <span aria-hidden="true">→</span></button>
+          <input type="hidden" name="_subject" value="Nuova richiesta dal sito Risolute">
+          <div class="hp" aria-hidden="true"><label>Non compilare questo campo<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+          <p class="privacy-note form-legal">I dati inseriti saranno usati solo per rispondere alla tua richiesta, come descritto nell'<a href="privacy.html">informativa privacy</a>. Evita di inserire informazioni riservate o dati personali non necessari.</p>
+          <button class="button button-primary form-submit" type="submit">Invia la richiesta <span aria-hidden="true">→</span></button>
           <p class="form-message" id="form-message" role="status">I campi contrassegnati con * sono obbligatori.</p>
         </form>
       </div>
@@ -471,10 +517,10 @@
     <div class="container">
       <div class="footer-top">
         <a class="brand footer-brand brand-placeholder" href="#inizio" aria-label="Risolute, torna all'inizio"><img class="logo-img" src="risolute-logo-light.svg" alt="Risolute" width="167" height="22"><span class="wordmark-sub">CONSULENZA OPERATIVA</span></a>
-        <div class="footer-links"><a href="#approccio">Approccio</a><a href="#servizi">Servizi</a><a href="#metodo">Metodo</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div>
-        <a href="mailto:amministrazione@risolute.it">amministrazione@risolute.it</a>
+        <div class="footer-links"><a href="#approccio">Approccio</a><a href="#servizi">Servizi</a><a href="#metodo">Metodo</a><a href="#percorsi">Percorsi</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div>
+        <a href="mailto:info@risolute.it">info@risolute.it</a>
       </div>
-      <div class="footer-bottom"><span>© <span id="year">2026</span> Risolute. Tutti i diritti riservati.</span><span>Diamo metodo alle complessità.</span></div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> Risolute. Tutti i diritti riservati.</span><span><a href="privacy.html">Privacy e cookie</a></span></div>
     </div>
   </footer>
   <a class="back-top" id="back-top" href="#inizio" aria-label="Torna all'inizio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 6-6 6 6"/></svg></a>
@@ -522,30 +568,57 @@
         });
       });
 
-      document.getElementById('contact-form').addEventListener('submit', function (event) {
+      const FORM_ENDPOINT = 'https://formspree.io/f/xoejgjdb'; // Incolla qui l'indirizzo del modulo, per esempio 'https://formspree.io/f/xxxxxxxx'
+      const MAIL = 'info@risolute.it';
+      const msg = document.getElementById('form-message');
+      const typos = { 'gmial.com': 'gmail.com', 'gmai.com': 'gmail.com', 'gmail.con': 'gmail.com', 'hotmial.com': 'hotmail.com', 'hotmail.con': 'hotmail.com', 'outlok.com': 'outlook.com', 'yaho.com': 'yahoo.com', 'yahoo.con': 'yahoo.com', 'libero.com': 'libero.it' };
+      let warned = '';
+
+      document.getElementById('copy-mail').addEventListener('click', function () {
+        const b = this;
+        function done() { b.textContent = 'Copiato ✓'; setTimeout(function () { b.textContent = 'Copia indirizzo'; }, 2000); }
+        if (navigator.clipboard) { navigator.clipboard.writeText(MAIL).then(done, function () { msg.textContent = 'Il nostro indirizzo è ' + MAIL; }); }
+        else { msg.textContent = 'Il nostro indirizzo è ' + MAIL; }
+      });
+
+      document.getElementById('contact-form').addEventListener('submit', async function (event) {
         event.preventDefault();
         const form = event.currentTarget;
+        const emailInput = form.elements.email;
+        const btn = form.querySelector('.form-submit');
+        emailInput.value = emailInput.value.trim();
         if (!form.reportValidity()) return;
+        const email = emailInput.value.toLowerCase();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+          msg.textContent = 'L\'indirizzo email non sembra corretto. Controllalo e riprova.'; emailInput.focus(); return;
+        }
+        const parts = email.split('@');
+        if (typos[parts[1]] && warned !== email) {
+          warned = email;
+          msg.textContent = 'Intendevi ' + parts[0] + '@' + typos[parts[1]] + '? Correggi l\'indirizzo, oppure premi di nuovo Invia se è giusto.';
+          emailInput.focus(); return;
+        }
+        if (form.elements._gotcha.value) { msg.textContent = 'Grazie, richiesta inviata.'; form.reset(); return; }
         const data = new FormData(form);
-        const subject = 'Richiesta di confronto - Risolute';
-        const lines = [
-          'Buongiorno Risolute,',
-          '',
-          'vorrei sottoporvi una richiesta di confronto operativo.',
-          '',
-          'Nome: ' + data.get('nome'),
-          'Azienda o attività: ' + (data.get('azienda') || 'Non indicata'),
-          'Email: ' + data.get('email'),
-          'Ambito: ' + data.get('tema'),
-          '',
-          'Descrizione del problema:',
-          data.get('messaggio'),
-          '',
-          'Grazie.'
-        ];
-        const mailto = 'mailto:amministrazione@risolute.it?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-        document.getElementById('form-message').textContent = 'Si sta aprendo il programma di posta. Controlla il messaggio e invialo per completare la richiesta.';
-        window.location.href = mailto;
+        if (FORM_ENDPOINT) {
+          btn.disabled = true; msg.textContent = 'Invio in corso…';
+          try {
+            const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+            if (!r.ok) throw new Error('http ' + r.status);
+            form.reset(); warned = '';
+            msg.textContent = 'Grazie, la richiesta è stata inviata. Ti risponderemo all\'indirizzo indicato.';
+          } catch (e) {
+            msg.textContent = 'Non siamo riusciti a inviare la richiesta. Riprova tra poco oppure scrivici a ' + MAIL + '.';
+          }
+          btn.disabled = false; return;
+        }
+        // Finché il servizio di invio non è configurato, si apre il programma di posta
+        const lines = ['Buongiorno Risolute,', '', 'vorrei sottoporvi una richiesta di confronto.', '',
+          'Nome: ' + data.get('nome'), 'Azienda o attività: ' + (data.get('azienda') || 'Non indicata'),
+          'Email: ' + data.get('email'), 'Telefono: ' + (data.get('telefono') || 'Non indicato'), 'Ambito: ' + data.get('tema'), '',
+          'Descrizione del problema:', data.get('messaggio'), '', 'Grazie.'];
+        msg.textContent = 'Si sta aprendo il programma di posta. Se non si apre, scrivici a ' + MAIL + '.';
+        window.location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Richiesta di confronto - Risolute') + '&body=' + encodeURIComponent(lines.join('\n'));
       });
 
       const backTop = document.getElementById('back-top');
